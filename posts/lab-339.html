@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-W8F8PVCQ');</script>
+<!-- End Google Tag Manager -->
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AI 요약 품질 유형 4가지와 실무 판단 기준 | AI Growth Lab</title>
+<link rel="icon" type="image/png" href="https://ai-growth-lab.reinventing.kr/logo.png">
+<link rel="apple-touch-icon" href="https://ai-growth-lab.reinventing.kr/logo.png">
+<meta name="theme-color" content="#0a0f1e">
+<meta name="description" content="AI 요약 결과물을 충실 요약·압축 편향·생성 오염·구조 붕괴 4가지 유형으로 분류하고, 업무 목적과 업종별로 실무 판단 기준을 제시한다.">
+<meta property="og:title" content="AI 요약 품질 유형 4가지와 실무 판단 기준"><meta property="og:description" content="AI 요약 결과물을 충실 요약·압축 편향·생성 오염·구조 붕괴 4가지 유형으로 분류하고, 업무 목적과 업종별로 실무 판단 기준을 제시한다.">
+<meta property="og:url" content="https://ai-growth-lab.reinventing.kr/posts/lab-339.html">
+<link rel="canonical" href="https://ai-growth-lab.reinventing.kr/posts/lab-339.html">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"AI 요약 품질 유형 4가지와 실무 판단 기준","description":"AI 요약 결과물을 충실 요약·압축 편향·생성 오염·구조 붕괴 4가지 유형으로 분류하고, 업무 목적과 업종별로 실무 판단 기준을 제시한다.","image":"https://images.unsplash.com/photo-1632152053988-e94d3d77829b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MzkwNjB8MHwxfHNlYXJjaHwxMnx8QUklMjBkb2N1bWVudCUyMHN1bW1hcnklMjBsYXB0b3AlMjB3b3JrZmxvd3xlbnwxfDB8fHwxNzg4ODI2NTkxfDA&ixlib=rb-4.1.0&q=80&w=1080","author":{"@type":"Organization","name":"Reinventing","url":"https://www.reinventing.kr/"},"publisher":{"@type":"Organization","name":"Reinventing","logo":{"@type":"ImageObject","url":"https://ai-growth-lab.reinventing.kr/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://ai-growth-lab.reinventing.kr/posts/lab-339.html"},"datePublished":"2026-09-08","dateModified":"2026-09-08"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"AI 요약이 충실 요약인지 확인하는 가장 빠른 방법은 무엇인가","acceptedAnswer":{"@type":"Answer","text":"원문의 결론 문장과 핵심 수치를 요약에서 찾는 것이 가장 빠르다. 결론이 요약에 명시되어 있고, 원문에 있는 수치가 동일하게 반영되어 있다면 충실 요약에 해당할 가능성이 높다. 단, 이 방법만으로는 생성 오염을 걸러낼 수 없으므로 고유명사와 조건 항목은 별도로 대조한다."}},{"@type":"Question","name":"생성 오염 요약은 프롬프트를 수정하면 줄일 수 있는가","acceptedAnswer":{"@type":"Answer","text":"줄일 수 있다. \"원문에 명시된 내용만 포함하고 추론하지 말 것\"이라는 지시를 프롬프트에 포함하면 생성 오염 빈도가 낮아지는 경향이 있다. 다만 완전히 제거되지는 않으므로 수치·조건 항목의 원문 대조 절차는 유지해야 한다."}},{"@type":"Question","name":"내부 문서 요약과 외부 발송 문서 요약의 검토 기준을 다르게 적용해도 되는가","acceptedAnswer":{"@type":"Answer","text":"다르게 적용하는 것이 현실적이다. 내부 브리핑용이라면 담당자가 원문을 알고 있다는 전제 하에 압축 편향 요약도 수용 가능하다. 외부 발송 문서는 수신자가 원문을 확인할 수 없으므로 충실 요약 기준을 적용하고, 생성 오염 점검을 의무화한다. 기준의 차이를 팀 내 문서로 명시해두면 검토 판단을 개인에게 맡기지 않아도 된다."}}]}</script>
+<meta property="og:image" content="https://ai-growth-lab.reinventing.kr/logo.png">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#0a0f1e;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.7;}
+a{color:inherit;text-decoration:none;}
+nav{background:rgba(10,15,30,.95);border-bottom:1px solid #1e293b;padding:0 24px;position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-size:16px;font-weight:800;background:linear-gradient(135deg,#818cf8,#34d399);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.nav-links{display:flex;gap:8px;}
+.nav-links a{padding:6px 12px;border-radius:6px;font-size:12px;color:#94a3b8;transition:all .2s;}
+.nav-links a:hover{background:#1e293b;color:#e2e8f0;}
+.post-container{max-width:760px;margin:0 auto;padding:48px 24px 80px;}
+.post-meta{display:flex;align-items:center;gap:10px;margin-bottom:20px;}
+.cat-badge{padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;background:#1e3a5f;color:#93c5fd;}
+.post-date{font-size:13px;color:#64748b;}
+.post-title{font-size:32px;font-weight:800;color:#f1f5f9;line-height:1.3;margin-bottom:32px;}
+.post-content h3{font-size:22px;font-weight:700;color:#f1f5f9;margin:48px 0 14px;padding-top:20px;border-top:1px solid #1e293b;}
+.post-content h4{font-size:18px;font-weight:600;color:#e2e8f0;margin:32px 0 10px;}
+.post-content p{margin:0 0 22px;line-height:1.9;font-size:16px;color:#cbd5e1;}
+.post-content ul{margin:16px 0 22px 24px;}
+.post-content li{margin-bottom:10px;line-height:1.8;color:#cbd5e1;}
+.post-content strong{color:#f1f5f9;font-weight:700;}
+.post-content blockquote{border-left:4px solid #6366f1;margin:28px 0;padding:14px 20px;background:rgba(99,102,241,.08);border-radius:0 8px 8px 0;}
+.post-content figure{margin:32px 0;} .post-content figure img{width:100%;border-radius:10px;}
+.back-link{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;background:#1e293b;border-radius:8px;font-size:14px;color:#94a3b8;margin-bottom:48px;transition:all .2s;}
+.back-link:hover{background:#334155;color:#e2e8f0;}
+.post-footer{margin-top:48px;padding-top:24px;border-top:1px solid #1e293b;font-size:13px;color:#64748b;}
+.post-footer a{color:#818cf8;}
+footer{background:#070c18;border-top:1px solid #1e293b;padding:32px 24px;text-align:center;}
+footer p{font-size:13px;color:#475569;} footer a{color:#818cf8;}
+@media(max-width:768px){
+  nav{padding:0 16px;}
+  .nav-inner{height:56px;}
+  .nav-links{display:none;}
+  .logo{font-size:16px;}
+  .post-container{padding:32px 20px 64px;}
+  .back-link{margin-bottom:28px;font-size:13px;padding:9px 14px;}
+  .post-title{font-size:26px;line-height:1.3;letter-spacing:-0.02em;margin-bottom:24px;word-break:keep-all;}
+  .post-content p{font-size:15px;line-height:1.85;}
+  .post-content h3{font-size:19px;line-height:1.35;word-break:keep-all;}
+  .post-content figure img{height:auto !important;max-height:280px;object-fit:cover;}
+}
+@media(max-width:420px){ .post-title{font-size:23px;} }
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W8F8PVCQ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<nav><div class="nav-inner">
+  <a href="https://ai-growth-lab.reinventing.kr/" class="logo">AI Growth Lab</a>
+  <div class="nav-links">
+    <a href="https://ai-growth-lab.reinventing.kr/?cat=crm">CRM & 그로스</a>
+    <a href="https://ai-growth-lab.reinventing.kr/?cat=ai">AI 실무 활용</a>
+    <a href="https://ai-growth-lab.reinventing.kr/?cat=automation">자동화 & 워크플로우</a>
+    <a href="https://ai-growth-lab.reinventing.kr/?cat=content">AI 콘텐츠 & 프롬프트</a>
+  </div>
+</div></nav>
+<div class="post-container">
+  <a href="https://ai-growth-lab.reinventing.kr/" class="back-link">← 전체 글 목록</a>
+  <div class="post-meta"><span class="cat-badge">AI 실무 활용</span><span class="post-date">2026. 9. 8.</span></div>
+  <h1 class="post-title">AI 요약 품질 유형 4가지와 실무 판단 기준</h1>
+  <div class="post-content"><figure style="margin:0 0 32px;"><img src="https://images.unsplash.com/photo-1632152053988-e94d3d77829b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MzkwNjB8MHwxfHNlYXJjaHwxMnx8QUklMjBkb2N1bWVudCUyMHN1bW1hcnklMjBsYXB0b3AlMjB3b3JrZmxvd3xlbnwxfDB8fHwxNzg4ODI2NTkxfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="AI 요약 품질 유형 4가지와 실무 판단 기준" style="width:100%;aspect-ratio:3 / 2;object-fit:cover;border-radius:12px;display:block;"></figure>
+<p style="margin:0 0 22px;line-height:1.9;font-size:16px;color:#cbd5e1;">AI 요약 결과물을 그대로 쓸 수 있는지 판단하지 못해 매번 전문 검토에 시간을 쏟는다면, AI 요약 품질 유형을 구분하는 기준이 없기 때문이다. 요약의 길이나 문장 완성도만 보고 품질을 판단하면 실무에서 반드시 오류가 생긴다.</p>
+
+<h3 style="font-size:22px;font-weight:700;color:#f1f5f9;margin:48px 0 14px;padding-top:20px;border-top:1px solid #1e293b;">왜 AI 요약 품질을 유형으로 나눠야 하는가</h3>
+
+<p style="margin:0 0 22px;line-height:1.9;font-size:16px;color:#cbd5e1;">AI가 생성한 요약은 겉으로 유창해 보여도 내부 품질은 크게 다르다. 문장이 매끄럽고 분량이 적절해 보여도 원문의 핵심 논리가 빠져 있거나, 원문에 없는 정보가 삽입되어 있는 경우가 있다.</p>
+
+<p style="margin:0 0 22px;line-height:1.9;font-size:16px;color:#cbd5e1;">실무자가 이를 구분하지 못하면 두 가지 극단적인 결과로 이어진다. 하나는 품질이 낮은 요약을 그대로 사용해 의사결정 오류를 만드는 것이고, 다른 하나는 품질이 충분한 요약을 불신해 검토 비용을 과도하게 투입하는 것이다. 두 결과 모두 AI 도입의 실익을 줄인다.</p>
+
+<p style="margin:0 0 22px;line-height:1.9;font-size:16px;color:#cbd5e1;">유형 분류는 이 낭비를 줄이기 위한 실무 도구다.</p>
+
+<h3 style="font-size:22px;font-weight:700;color:#f1f5f9;margin:48px 0 14px;padding-top:20px;border-top:1px solid #1e293b;">AI 요약 품질의 4가지 유형</h3>
+
+<h4 style="font-size:18px;font-weight:600;color:#e2e8f0;margin:32px 0 10px;">유형 1. 충실 요약</h4>
+
+<p style="margin:0 0 22px;line-height:1.9;font-size:16px;color:#cbd5e1;">원문의 핵심 논점, 근거, 결론이 모두 보존된 상태다. 원문을 읽지 않아도 동일한 판단을 내릴 수 있을 만큼 정보 손실이 적다. 계약서 검토, 리포트 요약, 회의록 정리처럼 정보 전달이 목적인 업무에 바로 활용할 수 있다.</p>
+
+<p style="margin:0 0 22px;line-height:1.9;font-size:16px;color:#cbd5e1;">판단 기준: 원문의 핵심 주장이 요약에 명시적으로 포함되어 있고, 수치·조건·예외 사항이 누락 없이 반영되어 있으면 충실 요약으로 본다.</p>
+
+<h4 style="font-size:18px;font-weight:600;color:#e2e8f0;margin:32px 0 10px;">유형 2. 압축 편향 요약</h4>
+
+<p style="margin:0 0 22px;line-height:1.9;font-size:16px;color:#cbd5e1;">원문 전체를 다루지만 특정 섹션이나 주장에 비중이 쏠려 있다. 결론부는 잘 요약되어 있으나 근거나 전제 조건이 생략된 경우가 대표적이다. 자사몰 운영 환경에서 상품 기획서를 요약할 때, 타깃 고객 조건이나 재고 연동 조건이 빠진 채 상품명과 가격만 남는 패턴이 이에 해당한다.</p>
+
+<p style="margin:0 0 22px;line-height:1.9;font-size:16px;color:#cbd5e1;">판단 기준: 요약만 읽었을 때 "왜 이런 결론인가"를 설명할 수 없다면 압축 편향으로 분류한다. 이 유형은 사용 전 원문의 전제 조건을 별도로 확인해야 한다.</p>
+
+<h4 style="font-size:18px;font-weight:600;color:#e2e8f0;margin:32px 0 10px;">유형 3. 생성 오염 요약</h4>
+
+<p style="margin:0 0 22px;line-height:1.9;font-size:16px;color:#cbd5e1;">원문에 없는 정보가 요약에 포함된 상태다. AI가 유사한 문서에서 학습한 패턴을 원문에 투영해 없는 내용을 생성한다. 부동산 매물 설명서를 요약할 때 실제 등재되지 않은 층수나 관리비 조건이 추가되는 경우, 병원 진료 지침 요약에서 원문에 없는 투약 용량이 삽입되는 경우가 이에 해당한다.</p>
+
+<p style="margin:0 0 22px;line-height:1.9;font-size:16px;color:#cbd5e1;"><strong style="color:#f1f5f9;font-weight:700;">이 유형은 실무에서 가장 위험하다.</strong> 문장이 자연스럽고 형식이 완성되어 있어 육안 검토만으로 발견하기 어렵다.</p>
+
+<p style="margin:0 0 22px;line-height:1.9;font-size:16px;color:#cbd5e1;">판단 기준: 요약의 고유명사, 수치, 조건을 원문과 1:1로 대조한다. 원문에서 출처를 찾을 수 없는 항목이 하나라도 있으면 생성 오염으로 판정한다.</p>
+
+<h4 style="font-size:18px;font-weight:600;color:#e2e8f0;margin:32px 0 10px;">유형 4. 구조 붕괴 요약</h4>
+
+<p style="margin:0 0 22px;line-height:1.9;font-size:16px;color:#cbd5e1;">원문의 논리 순서나 인과관계가 해체된 상태다. 개별 문장은 원문에 근거하지만 배열이 바뀌어 의미가 달라진다. 학원의 커리큘럼 안내문을 요약할 때 선수 과목과 심화 과목의 순서가 뒤바뀌거나, 법무 문서에서 조건절이 결론 뒤에 배치되는 경우가 이에 해당한다.</p>
+
+<p style="margin:0 0 22px;line-height:1.9;font-size:16px;color:#cbd5e1;">판단 기준: 요약의 문단 순서를 따라가며 인과 흐름이 원문과 일치하는지 확인한다. 결론이 근거보다 앞에 오거나 조건이 결과 뒤에 나오면 구조 붕괴로 분류한다.</p>
+
+<h3 style="font-size:22px;font-weight:700;color:#f1f5f9;margin:48px 0 14px;padding-top:20px;border-top:1px solid #1e293b;">업무 유형별 허용 기준</h3>
+
+<p style="margin:0 0 22px;line-height:1.9;font-size:16px;color:#cbd5e1;">유형을 분류했다고 해서 모든 상황에 동일한 기준을 적용하면 검토 비용이 오히려 늘어난다. 업무 목적에 따라 허용 범위를 달리 설정해야 한다.</p>
+
+<p style="margin:0 0 22px;line-height:1.9;font-size:16px;color:#cbd5e1;">내부 브리핑용 자료라면 압축 편향 요약도 조건부로 수용할 수 있다. 담당자가 원문을 이미 숙지한 상태라면 핵심 포인트만 추출된 요약으로 충분하다.</p>
+
+<p style="margin:0 0 22px;line-height:1.9;font-size:16px;color:#cbd5e1;">반면 외부 발송 문서, 계약 관련 자료, 의료·법무·금융 정보가 포함된 문서는 충실 요약 이외의 유형을 허용하지 않는 것이 원칙이다. 카페24나 아임웹 기반 자사몰에서 상품 상세 페이지나 약관 문구를 AI로 요약해 재활용할 때도 생성 오염 여부를 반드시 원문 대조로 확인해야 한다.</p>
+
+<h4 style="font-size:18px;font-weight:600;color:#e2e8f0;margin:32px 0 10px;">검토 우선순위 설정 방법</h4>
+
+<p style="margin:0 0 22px;line-height:1.9;font-size:16px;color:#cbd5e1;">모든 요약을 동일하게 검토하면 실무 효율이 낮아진다. 다음 세 가지 기준으로 검토 우선순위를 정한다.</p>
+
+<p style="margin:0 0 22px;line-height:1.9;font-size:16px;color:#cbd5e1;">첫째, 원문 길이가 길수록 압축 편향과 구조 붕괴 가능성이 높다. A4 3페이지 이상의 문서는 구조 붕괴 점검을 우선한다.</p>
+
+<p style="margin:0 0 22px;line-height:1.9;font-size:16px;color:#cbd5e1;">둘째, 수치·조건·고유명사가 많은 문서는 생성 오염 점검을 먼저 한다. 부동산 계약서, 의약품 설명서, 금융 상품 안내문이 이에 해당한다.</p>
+
+<p style="margin:0 0 22px;line-height:1.9;font-size:16px;color:#cbd5e1;">셋째, 원문이 복수의 이해관계자 입장을 담고 있다면 압축 편향 여부를 확인한다. 한쪽 입장만 강조된 요약이 나올 가능성이 높다.</p>
+
+
+<figure style="margin:32px 0;"><img src="https://images.pexels.com/photos/36633860/pexels-photo-36633860.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="AI 요약 품질 유형 4가지와 실무 판단 기준" style="width:100%;aspect-ratio:3 / 2;object-fit:cover;border-radius:10px;display:block;"></figure>
+<h3 style="font-size:22px;font-weight:700;color:#f1f5f9;margin:48px 0 14px;padding-top:20px;border-top:1px solid #1e293b;">업종별 실무 적용 사례</h3>
+
+<p style="margin:0 0 22px;line-height:1.9;font-size:16px;color:#cbd5e1;">자사몰 운영팀이 신규 입점 브랜드의 상품 기획서를 AI로 요약한다고 가정하면, 상품 조건과 배송 정책이 누락된 압축 편향 요약이 나올 수 있다. 이 경우 요약 프롬프트에 "조건, 예외, 수치를 포함하라"는 지시를 추가하면 충실 요약에 가까운 결과를 얻을 수 있다.</p>
+
+<p style="margin:0 0 22px;line-height:1.9;font-size:16px;color:#cbd5e1;">부동산 중개 사무소에서 매물 설명 자료를 요약할 때는 생성 오염이 핵심 위험이다. 층수, 전용면적, 관리비 항목을 요약 후 원문과 대조하는 체크리스트를 별도로 운영하는 것이 현실적인 대안이다.</p>
+
+<p style="margin:0 0 22px;line-height:1.9;font-size:16px;color:#cbd5e1;">학원에서 강의 커리큘럼 안내문을 요약해 입학 상담 자료로 쓴다면 구조 붕괴 점검이 먼저다. 선수 과목 조건이 뒤바뀐 요약은 상담 오류로 이어진다.</p>
+
+<p style="margin:0 0 22px;line-height:1.9;font-size:16px;color:#cbd5e1;">병원 원무팀이 보험 청구 지침 문서를 요약해 내부 공유할 때는 충실 요약만 허용하고, 요약 결과를 원문 섹션 순서대로 교차 확인하는 절차를 고정한다.</p>
+
+<h3 style="font-size:22px;font-weight:700;color:#f1f5f9;margin:48px 0 14px;padding-top:20px;border-top:1px solid #1e293b;">다음 단계: 요약 품질을 높이는 프롬프트 설계</h3>
+
+<p style="margin:0 0 22px;line-height:1.9;font-size:16px;color:#cbd5e1;">유형을 판단하는 기준을 갖추는 것과, 처음부터 원하는 유형의 요약을 얻는 것은 다른 문제다. 다음 글에서는 각 품질 유형별로 요약 결과를 유도하는 프롬프트 설계 방법을 다룬다. 입력 문서의 구조에 따라 프롬프트를 어떻게 달리 설계해야 하는지, 실무에서 바로 적용할 수 있는 형식으로 정리한다.</p>
+
+<h3 style="font-size:22px;font-weight:700;color:#f1f5f9;margin:48px 0 14px;padding-top:20px;border-top:1px solid #1e293b;">FAQ</h3>
+
+<h4 style="font-size:18px;font-weight:600;color:#e2e8f0;margin:32px 0 10px;">Q. AI 요약이 충실 요약인지 확인하는 가장 빠른 방법은 무엇인가</h4>
+
+<p style="margin:0 0 22px;line-height:1.9;font-size:16px;color:#cbd5e1;">원문의 결론 문장과 핵심 수치를 요약에서 찾는 것이 가장 빠르다. 결론이 요약에 명시되어 있고, 원문에 있는 수치가 동일하게 반영되어 있다면 충실 요약에 해당할 가능성이 높다. 단, 이 방법만으로는 생성 오염을 걸러낼 수 없으므로 고유명사와 조건 항목은 별도로 대조한다.</p>
+
+<h4 style="font-size:18px;font-weight:600;color:#e2e8f0;margin:32px 0 10px;">Q. 생성 오염 요약은 프롬프트를 수정하면 줄일 수 있는가</h4>
+
+<p style="margin:0 0 22px;line-height:1.9;font-size:16px;color:#cbd5e1;">줄일 수 있다. "원문에 명시된 내용만 포함하고 추론하지 말 것"이라는 지시를 프롬프트에 포함하면 생성 오염 빈도가 낮아지는 경향이 있다. 다만 완전히 제거되지는 않으므로 수치·조건 항목의 원문 대조 절차는 유지해야 한다.</p>
+
+<h4 style="font-size:18px;font-weight:600;color:#e2e8f0;margin:32px 0 10px;">Q. 내부 문서 요약과 외부 발송 문서 요약의 검토 기준을 다르게 적용해도 되는가</h4>
+
+<p style="margin:0 0 22px;line-height:1.9;font-size:16px;color:#cbd5e1;">다르게 적용하는 것이 현실적이다. 내부 브리핑용이라면 담당자가 원문을 알고 있다는 전제 하에 압축 편향 요약도 수용 가능하다. 외부 발송 문서는 수신자가 원문을 확인할 수 없으므로 충실 요약 기준을 적용하고, 생성 오염 점검을 의무화한다. 기준의 차이를 팀 내 문서로 명시해두면 검토 판단을 개인에게 맡기지 않아도 된다.</p><div style="margin:48px 0;padding:32px 36px;background:linear-gradient(135deg,#1e1b4b,#312e81);border:1px solid #4338ca;border-radius:12px;text-align:center;"><p style="margin:0 0 8px;font-size:16px;font-weight:700;color:#ffffff;">지금 우리 팀의 그로스 구조를 점검할 시점인가요?</p><p style="margin:0 0 20px;font-size:14px;color:#a5b4fc;line-height:1.6;">Reinventing은 마케팅 구조를 진단하고, 유입·유지·매출이 실제로 작동하는 성장 시스템을 설계합니다.</p><a href="https://www.reinventing.kr/flyWheelGrowth?utm_source=ai-growth-lab&utm_medium=blog&utm_campaign=LAB-339&utm_content=flywheel_consult" onclick="window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'cta_click',content_id:'LAB-339',cta_type:'flywheel_consult',category:'AI 실무 활용'});" style="display:inline-block;padding:14px 36px;background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#ffffff;text-decoration:none;border-radius:8px;font-size:14px;font-weight:600;">플라이휠 그로스 진단 문의하기 →</a></div></div>
+  <div class="post-footer"><em>AI Growth Lab은 <a href="https://www.reinventing.kr/">Reinventing</a>이 운영하는 그로스 마케팅 인사이트 미디어입니다.</em></div>
+</div>
+<footer><p>AI Growth Lab · <a href="https://www.reinventing.kr/">Reinventing</a> · <a href="https://www.reinventing.kr/retous">Retous</a> · <a href="https://www.reinventing.kr/flyWheelGrowth">플라이휠 그로스 컨설팅</a></p></footer>
+</body></html>
